@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="500" viewBox="0 0 1600 500" role="img" aria-label="grafsentinel - Grafana Security Scanner">
+  <defs>
+    <radialGradient id="gs-card" cx="0.15" cy="0.5" r="0.9">
+      <stop offset="0" stop-color="#1a0d2e"/>
+      <stop offset="0.5" stop-color="#0d0717"/>
+      <stop offset="1" stop-color="#05030a"/>
+    </radialGradient>
+
+    <pattern id="gs-grid" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#2a1745" stroke-width="0.8" opacity="0.6"/>
+    </pattern>
+
+    <linearGradient id="gs-hex" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3d1f6e"/>
+      <stop offset="0.5" stop-color="#1f0f3d"/>
+      <stop offset="1" stop-color="#0d0620"/>
+    </linearGradient>
+
+    <linearGradient id="gs-hex-rim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c084fc"/>
+      <stop offset="0.5" stop-color="#a855f7"/>
+      <stop offset="1" stop-color="#6d28d9"/>
+    </linearGradient>
+
+    <linearGradient id="gs-sweep" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#c084fc" stop-opacity="0"/>
+      <stop offset="0.7" stop-color="#c084fc" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#e879f9" stop-opacity="0.7"/>
+    </linearGradient>
+
+    <linearGradient id="gs-text-violet" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e9d5ff"/>
+      <stop offset="0.4" stop-color="#c084fc"/>
+      <stop offset="1" stop-color="#9333ea"/>
+    </linearGradient>
+
+    <radialGradient id="gs-halo" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#a855f7" stop-opacity="0.55"/>
+      <stop offset="0.45" stop-color="#7c3aed" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#7c3aed" stop-opacity="0"/>
+    </radialGradient>
+
+    <filter id="gs-shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="12"/>
+      <feOffset dx="0" dy="6" result="blur"/>
+      <feFlood flood-color="#a855f7" flood-opacity="0.55"/>
+      <feComposite in2="blur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="gs-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="gs-text-glow" x="-10%" y="-20%" width="120%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#a855f7" flood-opacity="0.6"/>
+      <feComposite in2="blur" operator="in" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <clipPath id="gs-radar-clip">
+      <circle cx="0" cy="0" r="125"/>
+    </clipPath>
+  </defs>
+
+  <rect width="1600" height="500" rx="40" fill="url(#gs-card)"/>
+  <rect width="1600" height="500" rx="40" fill="url(#gs-grid)"/>
+
+  <ellipse cx="270" cy="250" rx="320" ry="290" fill="url(#gs-halo)"/>
+  <ellipse cx="1350" cy="250" rx="280" ry="220" fill="url(#gs-halo)" opacity="0.35"/>
+
+  <g stroke="#4c1d95" stroke-width="2.5" fill="none" opacity="0.7">
+    <path d="M 30 80 L 30 30 L 80 30"/>
+    <path d="M 1570 80 L 1570 30 L 1520 30"/>
+    <path d="M 30 420 L 30 470 L 80 470"/>
+    <path d="M 1570 420 L 1570 470 L 1520 470"/>
+  </g>
+
+  <rect x="1.5" y="1.5" width="1597" height="497" rx="38.5" fill="none" stroke="#2a1745" stroke-width="3"/>
+  <rect x="8" y="8" width="1584" height="484" rx="33" fill="none" stroke="#a855f7" stroke-width="0.7" opacity="0.3"/>
+
+  <g transform="translate(270,250)" filter="url(#gs-shadow)">
+    <polygon points="0,-184 159.4,-92 159.4,92 0,184 -159.4,92 -159.4,-92"
+             fill="none" stroke="url(#gs-hex-rim)" stroke-width="2.5" opacity="0.5"/>
+
+    <polygon points="0,-160 138.6,-80 138.6,80 0,160 -138.6,80 -138.6,-80"
+             fill="url(#gs-hex)" stroke="url(#gs-hex-rim)" stroke-width="4"/>
+
+    <polygon points="0,-147 127.3,-73.5 127.3,73.5 0,147 -127.3,73.5 -127.3,-73.5"
+             fill="none" stroke="#a855f7" stroke-width="1" opacity="0.4"/>
+
+    <g clip-path="url(#gs-radar-clip)">
+      <g fill="none" stroke="#a855f7" stroke-width="1.2" opacity="0.35">
+        <circle cx="0" cy="0" r="32"/>
+        <circle cx="0" cy="0" r="64"/>
+        <circle cx="0" cy="0" r="96"/>
+        <circle cx="0" cy="0" r="125"/>
+      </g>
+      <g stroke="#a855f7" stroke-width="1.2" opacity="0.35">
+        <line x1="-125" y1="0" x2="125" y2="0"/>
+        <line x1="0" y1="-125" x2="0" y2="125"/>
+        <line x1="-88" y1="-88" x2="88" y2="88" opacity="0.5"/>
+        <line x1="-88" y1="88" x2="88" y2="-88" opacity="0.5"/>
+      </g>
+
+      <g>
+        <path d="M 0 0 L 125 0 A 125 125 0 0 0 88.4 -88.4 Z" fill="url(#gs-sweep)">
+          <animateTransform attributeName="transform" type="rotate"
+                            from="0" to="360" dur="4s" repeatCount="indefinite"/>
+        </path>
+      </g>
+
+      <g filter="url(#gs-glow)">
+        <circle cx="60" cy="-35" r="4.5" fill="#e879f9">
+          <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="-45" cy="56" r="4" fill="#c084fc">
+          <animate attributeName="opacity" values="0.4;1;0.4" dur="2.5s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="-72" cy="-48" r="3.2" fill="#a855f7">
+          <animate attributeName="opacity" values="1;0.3;1" dur="3s" repeatCount="indefinite"/>
+        </circle>
+      </g>
+    </g>
+
+    <g filter="url(#gs-glow)">
+      <circle cx="0" cy="0" r="22" fill="#0d0620" stroke="url(#gs-hex-rim)" stroke-width="2.5"/>
+      <circle cx="0" cy="0" r="13" fill="#a855f7"/>
+      <circle cx="0" cy="0" r="5.5" fill="#f3e8ff"/>
+    </g>
+
+    <g fill="#a855f7">
+      <circle cx="0" cy="-160" r="5.5"/>
+      <circle cx="138.6" cy="-80" r="5.5"/>
+      <circle cx="138.6" cy="80" r="5.5"/>
+      <circle cx="0" cy="160" r="5.5"/>
+      <circle cx="-138.6" cy="80" r="5.5"/>
+      <circle cx="-138.6" cy="-80" r="5.5"/>
+    </g>
+
+    <circle cx="0" cy="0" r="160" fill="none" stroke="#a855f7" stroke-width="2.5" opacity="0">
+      <animate attributeName="r" values="160;205;160" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;0;0.6" dur="3s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <g filter="url(#gs-text-glow)">
+    <text x="510" y="278" font-family="'Segoe UI','SF Pro Display',Helvetica,Arial,sans-serif"
+          font-size="170" font-weight="800" letter-spacing="-4.5">
+      <tspan fill="#f3e8ff">graf</tspan><tspan fill="url(#gs-text-violet)">sentinel</tspan>
+    </text>
+  </g>
+
+  <g transform="translate(513,310)">
+    <rect x="0" y="0" width="92" height="5" rx="2.5" fill="#a855f7"/>
+    <rect x="104" y="0" width="22" height="5" rx="2.5" fill="#a855f7" opacity="0.6"/>
+    <rect x="136" y="0" width="10" height="5" rx="2.5" fill="#a855f7" opacity="0.35"/>
+  </g>
+
+  <text x="513" y="370" font-family="'Segoe UI','SF Mono',Consolas,monospace"
+        font-size="30" font-weight="500" letter-spacing="12" fill="#a78bfa">
+    GRAFANA  ·  SECURITY  ·  SCANNER
+  </text>
+
+</svg>

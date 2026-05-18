@@ -1,0 +1,12 @@
+.git
+.gitignore
+tests
+.pytest_cache
+.coverage
+__pycache__
+*.pyc
+CHANGELOG.md
+reports
+*.scan.json
+*.scan.html
+*.scan.csv

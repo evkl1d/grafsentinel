@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Scan output
+reports/
+*.scan.json
+*.scan.html
+*.scan.csv
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+
+# Local only - not pushed to the repo
+tests/
