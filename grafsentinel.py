@@ -174,13 +174,15 @@ class HttpClient:
             urllib.request.HTTPSHandler(context=ctx),
             urllib.request.ProxyHandler(proxies))
 
-    def get(self, url, auth=None, headers=None):
+    def get(self, url, auth=None, headers=None, anonymous=False):
         if self.rate_limited:
             return None
         request_headers = dict(self._headers)
+        if anonymous:
+            request_headers.pop("Authorization", None)
         if headers:
             request_headers.update(headers)
-        basic = auth or self._auth
+        basic = None if anonymous else (auth or self._auth)
         if basic:
             token = base64.b64encode((basic[0] + ":" + basic[1]).encode()).decode()
             request_headers["Authorization"] = "Basic " + token
@@ -337,7 +339,7 @@ def check_default_credentials(ctx):
 
 def check_anonymous_access(ctx):
     url = ctx.target + "/api/org"
-    response = ctx.http.get(url)
+    response = ctx.http.get(url, anonymous=True)
     if response is None or response.status_code != 200:
         return []
     try:
@@ -353,7 +355,7 @@ def check_anonymous_access(ctx):
 
 def check_snapshot_exposure(ctx):
     url = ctx.target + "/api/dashboard/snapshots"
-    response = ctx.http.get(url)
+    response = ctx.http.get(url, anonymous=True)
     if response is None or response.status_code != 200:
         return []
     try:
@@ -369,7 +371,7 @@ def check_snapshot_exposure(ctx):
 
 def check_exposed_metrics(ctx):
     url = ctx.target + "/metrics"
-    response = ctx.http.get(url)
+    response = ctx.http.get(url, anonymous=True)
     if response is None or response.status_code != 200:
         return []
     if "# HELP" in response.text or "# TYPE" in response.text:
@@ -532,15 +534,15 @@ def check_sql_expression_cves(ctx):
     settings = _fetch_settings(ctx)
     if settings is None:
         return []
-    enabled = _section_enabled(settings, "expressions")
     toggles = settings.get("feature_toggles")
+    enabled = False
     if isinstance(toggles, dict):
         for key, value in toggles.items():
-            if "expr" in key.lower() and str(value).lower() == "true":
+            if "sqlexpressions" in (str(key) + " " + str(value)).lower():
                 enabled = True
     if not enabled:
         return []
-    candidates = [_evidenced_cve(ctx, cve_id, "the SQL Expressions feature is enabled")
+    candidates = [_evidenced_cve(ctx, cve_id, "the sqlExpressions feature toggle is enabled")
                   for cve_id in ("CVE-2024-9264", "CVE-2026-27876")]
     return [finding for finding in candidates if finding is not None]
 
